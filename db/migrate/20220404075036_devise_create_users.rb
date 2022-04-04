@@ -12,7 +12,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :last_name
       t.string :phone
       t.date :birthday
-      t.integer :role
+      t.integer :role, default: 0, null: false
 
       ## Recoverable
       t.string   :reset_password_token

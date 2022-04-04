@@ -1,8 +1,14 @@
-h1 New digitization agsk
+.new
+  .row.justify-content-center
+    .col-xl-8.col-sm-8.col-md-8
+      .card
+        .card-block
+          h1 class="card-header text-center" New Xroot
+          .card-body
+            .row.justify-content-md-center
+              .col-md-8
 
-== render "form", digitization_agsk: @digitization_agsk
+                = render "form", digitization_agsk: @digitization_agsk
 
-br
-
-div
-  = link_to "Back to digitization agsks", digitization_agsks_path
+  .btn-group.mt-5
+    = link_to "Back", digitization_agsks_path, class: 'btn btn-sm btn-outline-secondary'

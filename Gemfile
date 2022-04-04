@@ -64,6 +64,13 @@ gem 'cancancan'
 # them
 gem 'slim-rails'
 
+#icon helper
+gem 'octicons'
+gem 'octicons_helper'
+
+# Use Pagy for pagination
+gem 'pagy'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]

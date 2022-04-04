@@ -303,6 +303,8 @@ Devise.setup do |config|
   #   include Turbolinks::Controller
   # end
 
+  config.navigational_formats = ['*/*', :html, :turbo_stream]
+
   # ==> Configuration for :registerable
 
   # When set to false, does not sign a user in automatically after their password is

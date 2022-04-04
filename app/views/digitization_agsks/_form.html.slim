@@ -1,30 +1,21 @@
 = form_with(model: @digitization_agsk) do |form|
-  - if @digitization_agsk.errors.any?
-    div style="color: red"
-      h2 = "#{pluralize(@digitization_agsk.errors.count, 'error')} prohibited this digitization_agsk from being saved:"
-      ul
-        - @digitization_agsk.errors.each do |error|
-          li = error.full_message
+  = render 'shared/errors', object: @digitization_agsk
 
-  div
+  .form-group
     = form.label :requirement, style: "display: block"
-    = form.text_area :requirement
+    = form.text_area :requirement, autofocus: true, autocomplete: 'requirement', class: 'form-control'
 
-  div
+  .form-group
     = form.label :concept, style: "display: block"
-    = form.text_field :concept
+    = form.text_field :concept, autofocus: true, autocomplete: 'concept', class: 'form-control'
 
-  div
+  .form-group
     = form.label :descriptor, style: "display: block"
-    = form.text_field :descriptor
+    = form.text_field :descriptor, autofocus: true, autocomplete: 'descriptor', class: 'form-control'
 
-  div
+  .form-group
     = form.label :formalizability, style: "display: block"
-    = form.number_field :formalizability
+    = form.select :formalizability, DigitizationAgsk.formalizabilities.keys.map {|formalizability| [formalizability.titleize, formalizability] }
 
-  div
-    = form.label :user_id, style: "display: block"
-    = form.text_field :user_id
-
-  div
-    = form.submit
+  .mt-5
+    = form.submit class: 'btn btn-sm btn-outline-seccess'
