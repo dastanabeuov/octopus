@@ -32,6 +32,6 @@
   </div>
 <% end %>
 
-<p><%= t('.unhappy') %>? <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %>.</p>
+<p><%= t('.unhappy') %>? <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>.</p>
 
 <%= link_to t('.back'), :back %>

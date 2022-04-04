@@ -10,6 +10,8 @@ nav class="navbar sticky-top navbar-expand-md navbar-dark mb-5"
     - if user_signed_in?
       ul.navbar-nav.pull-xs-right.pl-5.pr-5
         li.nav-link
+          = link_to 'Tables', digitization_agsks_path
+        li.nav-link
           = current_user.email
         li.nav-link
           = link_to 'edit profile', edit_user_registration_path

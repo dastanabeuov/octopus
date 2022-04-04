@@ -3,7 +3,7 @@ class DigitizationAgsksController < ApplicationController
 
   # GET /digitization_agsks or /digitization_agsks.json
   def index
-    @digitization_agsks = DigitizationAgsk.all
+    @pagy, @digitization_agsks = pagy(DigitizationAgsk.all)
   end
 
   # GET /digitization_agsks/1 or /digitization_agsks/1.json
@@ -21,7 +21,7 @@ class DigitizationAgsksController < ApplicationController
 
   # POST /digitization_agsks or /digitization_agsks.json
   def create
-    @digitization_agsk = DigitizationAgsk.new(digitization_agsk_params)
+    @digitization_agsk = current_user.digitization_agsks.new(digitization_agsk_params)
 
     respond_to do |format|
       if @digitization_agsk.save
@@ -37,7 +37,8 @@ class DigitizationAgsksController < ApplicationController
   # PATCH/PUT /digitization_agsks/1 or /digitization_agsks/1.json
   def update
     respond_to do |format|
-      if @digitization_agsk.update(digitization_agsk_params)
+      if current_user.author_of?(@digitization_agsk)
+        @digitization_agsk.update(digitization_agsk_params)
         format.html { redirect_to digitization_agsk_url(@digitization_agsk), notice: "Digitization agsk was successfully updated." }
         format.json { render :show, status: :ok, location: @digitization_agsk }
       else
@@ -49,7 +50,7 @@ class DigitizationAgsksController < ApplicationController
 
   # DELETE /digitization_agsks/1 or /digitization_agsks/1.json
   def destroy
-    @digitization_agsk.destroy
+    @digitization_agsk.destroy if current_user.author_of?(@digitization_agsk)
 
     respond_to do |format|
       format.html { redirect_to digitization_agsks_url, notice: "Digitization agsk was successfully destroyed." }
@@ -65,6 +66,6 @@ class DigitizationAgsksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def digitization_agsk_params
-      params.require(:digitization_agsk).permit(:requirement, :concept, :descriptor, :formalizability, :user_id)
+      params.require(:digitization_agsk).permit(:requirement, :concept, :descriptor, :formalizability)
     end
 end

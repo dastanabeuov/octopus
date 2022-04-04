@@ -3,5 +3,11 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+1.times do
+  User.create!([{ email: "admin@domain.com", password: "123456", password_confirmation: "123456" }])
+end
+
+50.times do
+  DigitizationAgsk.create([{ user_id: User.first.id }, { requirement: "Star Wars" }, { concept: "Lord of the Rings" }, 
+  	{ descriptor: "Foo Bar" }, { formalizability: 0 }])
+end
