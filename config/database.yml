@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: postgres
+  database: octopus_development
+  password: <%= ENV['OCTOPUS_DATABASE_PASSWORD'] %>
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: postgres
+  database: octopus_test
+  password: <%= ENV['OCTOPUS_DATABASE_PASSWORD'] %>
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: postgres
+  database: octopus_production
+  password: <%= ENV['OCTOPUS_DATABASE_PASSWORD'] %>

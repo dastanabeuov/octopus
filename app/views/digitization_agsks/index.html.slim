@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Digitization agsks
+
+#digitization_agsks
+  - @digitization_agsks.each do |digitization_agsk|
+    == render digitization_agsk
+    p
+      = link_to "Show this digitization agsk", digitization_agsk
+
+= link_to "New digitization agsk", new_digitization_agsk_path

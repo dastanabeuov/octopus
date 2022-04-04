@@ -1,0 +1,10 @@
+p style="color: green" = notice
+
+== render @digitization_agsk
+
+div
+  => link_to "Edit this digitization agsk", edit_digitization_agsk_path(@digitization_agsk)
+  '|
+  =< link_to "Back to digitization agsks", digitization_agsks_path
+
+  = button_to "Destroy this digitization agsk", @digitization_agsk, method: :delete

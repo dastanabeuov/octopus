@@ -1,0 +1,30 @@
+= form_with(model: @digitization_agsk) do |form|
+  - if @digitization_agsk.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(@digitization_agsk.errors.count, 'error')} prohibited this digitization_agsk from being saved:"
+      ul
+        - @digitization_agsk.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :requirement, style: "display: block"
+    = form.text_area :requirement
+
+  div
+    = form.label :concept, style: "display: block"
+    = form.text_field :concept
+
+  div
+    = form.label :descriptor, style: "display: block"
+    = form.text_field :descriptor
+
+  div
+    = form.label :formalizability, style: "display: block"
+    = form.number_field :formalizability
+
+  div
+    = form.label :user_id, style: "display: block"
+    = form.text_field :user_id
+
+  div
+    = form.submit
