@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :digitization_agsks
+  resources :agsks do
+    post :import, on: :collection
+  end
 end

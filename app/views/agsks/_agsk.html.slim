@@ -1,0 +1,11 @@
+tbody
+  tr
+    td = agsk.requirement
+    td = agsk.concept
+    td = agsk.descriptor
+    td = agsk.formalizability
+    td = agsk.user_id
+    td 
+      = link_to 'Show', agsk_path(agsk), class: "btn btn-sm btn-outline-info"
+      - if current_user&.author_of?(agsk)
+        = link_to "Delete", agsk_path(agsk), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger"

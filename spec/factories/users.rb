@@ -5,7 +5,7 @@ FactoryBot.define do
     last_name { 'Moktopus' }
     phone { '+7 707 777 0000' }
     birthday { '2022-07-07' }
-    role { 'writer' }
+    role { 'guest' }
     password { '123456' }
     password_confirmation { '123456' }
   end

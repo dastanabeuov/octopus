@@ -8,6 +8,6 @@
 end
 
 50.times do
-  DigitizationAgsk.create([{ user_id: User.first.id }, { requirement: "Star Wars" }, { concept: "Lord of the Rings" }, 
+  Agsk.create([{ user_id: User.first.id }, { requirement: "Star Wars" }, { concept: "Lord of the Rings" }, 
   	{ descriptor: "Foo Bar" }, { formalizability: 0 }])
 end

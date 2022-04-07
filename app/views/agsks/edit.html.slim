@@ -1,0 +1,15 @@
+.edit
+  .row.justify-content-center
+    .col-xl-8.col-sm-8.col-md-8
+      .card
+        .card-block
+          h1 class="card-header text-center" Edit
+          .card-body
+            .row.justify-content-md-center
+              .col-md-8
+
+                = render "form", agsk: @agsk
+
+  .btn-group.mt-5
+    = link_to "Show", @agsk, class: 'btn btn-sm btn-outline-info'
+    = link_to 'Back', agsks_path, class: "btn btn-sm btn-secondary"

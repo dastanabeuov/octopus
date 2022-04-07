@@ -11,15 +11,17 @@ module Octopus
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.time_zone = 'Almaty'
+    
     config.autoload_paths += [config.root.join('app')]
     
-    # config.generators do |g|
-    #   g.test_framework :rspec,
-    #                     view_specs: false,
-    #                     helper_specs: false,
-    #                     routng_specs: false,
-    #                     request_specs: false
-    # end
+    config.generators do |g|
+      g.test_framework :rspec,
+                        view_specs: false,
+                        helper_specs: false,
+                        routng_specs: false,
+                        request_specs: false,
+                        controller_specs: false
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #
