@@ -1,0 +1,21 @@
+= form_with(model: @agsk) do |form|
+  = render 'shared/errors', object: @agsk
+
+  .form-group
+    = form.label :requirement, style: "display: block"
+    = form.text_area :requirement, autofocus: true, autocomplete: 'requirement', class: 'form-control'
+
+  .form-group
+    = form.label :concept, style: "display: block"
+    = form.text_field :concept, autofocus: true, autocomplete: 'concept', class: 'form-control'
+
+  .form-group
+    = form.label :descriptor, style: "display: block"
+    = form.text_field :descriptor, autofocus: true, autocomplete: 'descriptor', class: 'form-control'
+
+  .form-group
+    = form.label :formalizability, style: "display: block"
+    = form.select :formalizability, Agsk.formalizabilities.keys.map {|formalizability| [formalizability.titleize, formalizability] }
+
+  .mt-5
+    = form.submit class: 'btn btn-sm btn-outline-seccess'
