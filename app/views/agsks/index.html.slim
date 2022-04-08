@@ -1,20 +1,46 @@
 .new-agsk.mb-5
-  = link_to 'New', new_agsk_path, class: 'btn btn-sm btn-outline-success'
-  
-  .mt-3
+  .mb-5
+    = link_to 'New', new_agsk_path, class: 'btn btn-sm btn-outline-success mb-3'
+ 
     = form_tag import_agsks_path, multipart: true do
       = file_field_tag :file
       = submit_tag 'Import', class: 'btn btn-sm btn-outline-success'
 
+  .mb-5
+    = search_form_for @search, class: 'form-outline' do |f|
+      .input-group
+        .field
+          = f.label :requirement_cont, "Requirement contains", class: 'form-label'
+          = f.text_field :requirement_cont, class: 'form-control'
+
+        .field
+          = f.label :concept_cont, "Concept contains", class: 'form-label'
+          = f.text_field :concept_cont, class: 'form-control'
+
+        .field
+          = f.label :descriptor_cont, "Descriptor contains", class: 'form-label'
+          = f.text_field :descriptor_cont, class: 'form-control'
+
+        .field
+          = f.label :formalizability_cont, "Formalizability contains", class: 'form-label'
+          br
+          .mt-2
+            = f.select :formalizability_eq, options_for_select(Agsk.formalizabilities), include_blank: 'All', class: 'form-control'
+
+
+      .actions
+        = f.submit 'Search'
+
+
 div class="table-responsive"
-  table class="table table-bordered table-hover"
+  table id="agsks" class="table table-bordered table-hover"
     thead class="thead-light"
       tr
-        th Requirement
-        th Concept
-        th Descriptor
-        th Formalizability
-        th User ID
+        th = sort_link @search, :name, "Requirement"
+        th = sort_link @search, :name, "Concept"
+        th = sort_link @search, :name, "Descriptor"
+        th = sort_link @search, :name, "Formalizability"
+        th = sort_link @search, :name, "User ID"
         th colspan="1" = t('.action')
 
     = render @agsks

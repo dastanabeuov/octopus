@@ -3,7 +3,12 @@ class AgsksController < ApplicationController
 
   # GET /agsks or /agsks.json
   def index
-    @pagy, @agsks = pagy(Agsk.all)
+    @search = ransack_params
+    @agsks  = ransack_result
+    
+    @pagy, @agsks = pagy(@agsks)
+
+    #@pagy, @agsks = pagy(Agsk.all)
   end
 
   # GET /agsks/1 or /agsks/1.json
@@ -74,6 +79,18 @@ class AgsksController < ApplicationController
   end
 
   private
+    def ransack_params
+      Agsk.ransack(params[:q])
+    end
+
+    def ransack_result
+      @search.result(distinct: user_wants_distinct_results?)
+    end
+
+    def user_wants_distinct_results?
+      params[:distinct].to_i == 1
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_agsk
       @agsk = Agsk.find(params[:id])

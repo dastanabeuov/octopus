@@ -3,11 +3,20 @@
 #
 # Examples:
 #
-1.times do
-  User.create!([{ email: "admin@domain.com", password: "123456", password_confirmation: "123456" }])
-end
+# 1.times do
+#   User.create!([{ email: "admin@domain.com", password: "123456", password_confirmation: "123456" }])
+# end
 
-50.times do
-  Agsk.create([{ user_id: User.first.id }, { requirement: "Star Wars" }, { concept: "Lord of the Rings" }, 
-  	{ descriptor: "Foo Bar" }, { formalizability: 0 }])
+1.times.each { |id| User.create!(email: id.to_s + "first@domain.com", password: "123456", password_confirmation: "123456") }
+1.times.each { |id| User.create!(email: id.to_s + "second@domain.com", password: "123456", password_confirmation: "123456") }
+
+
+500.times.each do |id|
+    Agsk.create!(
+        user_id: rand(1..2),
+        requirement: Faker::Sports::Football.team + rand(500..1000).to_s,
+        concept: Faker::Sports::Football.player,
+        descriptor: Faker::Sports::Football.coach,
+        formalizability: rand(0..2)
+    )
 end
