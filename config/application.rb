@@ -10,8 +10,7 @@ module Octopus
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-    config.time_zone = 'Almaty'
-    
+    config.time_zone = 'Almaty'    
     config.autoload_paths += [config.root.join('app')]
     
     config.generators do |g|

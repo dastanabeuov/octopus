@@ -8,7 +8,7 @@ div class="table-responsive"
         th Requirement
         th Concept
         th Descriptor
-        th Formalizability
+        th Filter
         th User ID
         th colspan="1" Action
 
@@ -17,7 +17,7 @@ div class="table-responsive"
         td = @agsk.requirement
         td = @agsk.concept
         td = @agsk.descriptor
-        td = @agsk.formalizability
+        td = @agsk.filter
         td = @agsk.user_id
         td 
           => link_to "Edit", edit_agsk_path(@agsk), class: 'btn btn-sm btn-outline-warning'

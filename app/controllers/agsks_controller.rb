@@ -84,11 +84,7 @@ class AgsksController < ApplicationController
     end
 
     def ransack_result
-      @search.result(distinct: user_wants_distinct_results?)
-    end
-
-    def user_wants_distinct_results?
-      params[:distinct].to_i == 1
+      @search.result(distinct: true)
     end
 
     # Use callbacks to share common setup or constraints between actions.
@@ -98,6 +94,6 @@ class AgsksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def agsk_params
-      params.require(:agsk).permit(:requirement, :concept, :descriptor, :formalizability)
+      params.require(:agsk).permit(:requirement, :concept, :descriptor, :filter)
     end
 end

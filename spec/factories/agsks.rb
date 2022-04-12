@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence(:requirement) { |n| "MyString#{n}" }
     concept { "MyString" }
     descriptor { "MyString" }
-    formalizability { 1 }
+    filter { 1 }
     user { nil }
 
     trait :invalid do

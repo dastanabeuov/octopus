@@ -1,0 +1,38 @@
+.mb-5
+  = search_form_for @search, class: 'form-outline', 
+                    data: { controller: 'debounce',
+                    debounce_target: 'form',
+                    turbo_frame: 'search' } do |f|
+    
+    .input-group
+      .field
+        = f.label :requirement_cont, "Requirement contains", class: 'form-label'
+        = f.search_field :requirement_cont, 
+                     class: 'form-control',
+                     autocomplete: 'on',
+                     data: { action: 'input->debounce#search' }
+
+      .field
+        = f.label :concept_cont, "Concept contains", class: 'form-label'
+        = f.search_field :concept_cont,
+                     class: 'form-control',
+                     autocomplete: 'on',
+                     data: { action: 'input->debounce#search' }
+
+      .field
+        = f.label :descriptor_cont, "Descriptor contains", class: 'form-label'
+        = f.search_field :descriptor_cont,
+                     class: 'form-control',
+                     autocomplete: 'on',
+                     data: { action: 'input->debounce#search' }
+
+      .field.mt-2
+        = f.label :filter_cont, "Filter contains", class: 'form-label'
+        br          
+        = f.select :filter_eq, options_for_select(Agsk.filters), include_blank: 'All', class: 'form-control'
+
+    .actions.mt-2
+      = f.submit 'Search'
+
+.mb-5
+  = link_to 'Clear search', request.path, class: 'btn btn-sm btn-otline-secondary' if request.query_parameters.any?

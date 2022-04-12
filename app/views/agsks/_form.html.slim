@@ -14,8 +14,8 @@
     = form.text_field :descriptor, autofocus: true, autocomplete: 'descriptor', class: 'form-control'
 
   .form-group
-    = form.label :formalizability, style: "display: block"
-    = form.select :formalizability, Agsk.formalizabilities.keys.map {|formalizability| [formalizability.titleize, formalizability] }
+    = form.label :filter, style: "display: block"
+    = form.select :filter, Agsk.filters.keys.map {|filter| [filter.titleize, filter] }
 
   .mt-5
     = form.submit class: 'btn btn-sm btn-outline-seccess'

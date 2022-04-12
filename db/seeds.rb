@@ -7,12 +7,12 @@
 #   User.create!([{ email: "admin@domain.com", password: "123456", password_confirmation: "123456" }])
 # end
 
-100.times.each do |id|
+1000.times.each do |id|
     Agsk.create!(
         user_id: User.first.id,
         requirement: Faker::Lorem.sentence(word_count: 10),
         concept: Faker::Sports::Football.player,
         descriptor: Faker::Sports::Football.coach,
-        formalizability: rand(0..2)
+        filter: rand(0..59)
     )
 end

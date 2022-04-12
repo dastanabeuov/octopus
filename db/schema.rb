@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_080255) do
     t.text "requirement", null: false
     t.string "concept"
     t.string "descriptor"
-    t.integer "formalizability", default: 0, null: false
+    t.integer "filter", default: 0, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
