@@ -15,6 +15,6 @@ module ApplicationHelper
   end
 
   def current_year
-    "© #{Time.current.year} TMS"
+    "#{Time.current.year}"
   end
 end

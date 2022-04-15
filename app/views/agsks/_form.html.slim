@@ -2,20 +2,327 @@
   = render 'shared/errors', object: @agsk
 
   .form-group
-    = form.label :requirement, style: "display: block"
-    = form.text_area :requirement, autofocus: true, autocomplete: 'requirement', class: 'form-control'
+    = form.label :requirement, class: 'form-label'
+    = form.text_area :requirement, class: 'form-control'
 
   .form-group
-    = form.label :concept, style: "display: block"
-    = form.text_field :concept, autofocus: true, autocomplete: 'concept', class: 'form-control'
+    = form.label :concept, class: 'form-label'
+    = form.text_field :concept, class: 'form-control'
 
   .form-group
-    = form.label :descriptor, style: "display: block"
-    = form.text_field :descriptor, autofocus: true, autocomplete: 'descriptor', class: 'form-control'
+    = form.label :descriptor, class: 'form-label'
+    = form.text_field :descriptor, class: 'form-control'
+  
+  br
+  .form-group
+    .form-check.form-switch
+      = form.label :without_a_filter_eq, 'По содержанию', class: 'form-check-label'
+      = form.check_box :without_a_filter_eq, class: 'form-check-input'
 
   .form-group
-    = form.label :filter, style: "display: block"
-    = form.select :filter, Agsk.filters.keys.map {|filter| [filter.titleize, filter] }
+    .form-check.form-switch
+      = form.label :formalizable_eq, 'Формализуемый', class: 'form-check-label'
+      = form.check_box :formalizable_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :not_formalized_eq, 'Не Формализуемый', class: 'form-check-label'
+      = form.check_box :not_formalized_eq, class: 'form-check-input'
+
+  .form-group
+    .form-check.form-switch
+      = form.label :reference_eq, 'Ссылочная', class: 'form-check-label'
+      = form.check_box :reference_eq, class: 'form-check-input'
+
+  .form-group
+    .form-check.form-switch
+      = form.label :by_hierarchy_eq, 'По иерархии', class: 'form-check-label'
+      = form.check_box :by_hierarchy_eq, class: 'form-check-input'
+    
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :legislative_level_codes_eq, 'Законодательный уровень | Кодексы', class: 'form-check-label'
+      = form.check_box :legislative_level_codes_eq, class: 'form-check-input'
+
+  .form-group
+    .form-check.form-switch
+      = form.label :legislative_level_the_laws_eq, 'Законодательный уровень | Законы', class: 'form-check-label'
+      = form.check_box :legislative_level_the_laws_eq, class: 'form-check-input'
+
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :derived_level_technical_regulations_eq, 'Производный уровень | Тех.регламент', class: 'form-check-label'
+      = form.check_box :derived_level_technical_regulations_eq, class: 'form-check-input'
+
+  .form-group
+    .form-check.form-switch
+      = form.label :derived_level_rules_eq, 'Производный уровень | Правила', class: 'form-check-label'
+      = form.check_box :derived_level_rules_eq, class: 'form-check-input'
+  .form-group    
+    .form-check.form-switch
+      = form.label :derived_level_sanitary_regulations_eq, 'Производный уровень | Санитарные правила', class: 'form-check-label'
+      = form.check_box :derived_level_sanitary_regulations_eq, class: 'form-check-input'
+
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :performance_requirements_interstate_building_codes_eq, 'Результативные требования | Межгосударственные строительные нормы (МСН)', class: 'form-check-label'
+      = form.check_box :performance_requirements_interstate_building_codes_eq, class: 'form-check-input'
+  .form-group
+    .form-check.form-switch
+      = form.label :performance_requirements_building_codes_eq, 'Результативные требования | Строительные нормы (СН)', class: 'form-check-label'
+      = form.check_box :performance_requirements_building_codes_eq, class: 'form-check-input'
+  .form-group
+    .form-check.form-switch
+      = form.label :performance_requirements_guiding_documents_in_construction_eq, 'Результативные требования | Руководящие документы в строительстве (РДС)', class: 'form-check-label'
+      = form.check_box :performance_requirements_guiding_documents_in_construction_eq, class: 'form-check-input'
+
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :acceptable_solutions_interstate_codes_of_practice_eq, 'Приемлемые решения Межгосударственные Своды правил (МСП)', class: 'form-check-label'
+      = form.check_box :acceptable_solutions_interstate_codes_of_practice_eq, class: 'form-check-input'
+  .form-group
+    .form-check.form-switch
+      = form.label :acceptable_code_of_practice_solutions_eq, 'Приемлемые решения Своды правил (СП)', class: 'form-check-label'
+      = form.check_box :acceptable_code_of_practice_solutions_eq, class: 'form-check-input'
+  .form-group
+    .form-check.form-switch
+      = form.label :acceptable_solutions_recommendations_instructions_normative_tec_eq, 'Приемлемые решения Рекомендации, инструкции, Нормативно технические пособия(НТП)', class: 'form-check-label'
+      = form.check_box :acceptable_solutions_recommendations_instructions_normative_tec_eq, class: 'form-check-input'
+  .form-group
+    .form-check.form-switch
+      = form.label :acceptable_solutions_interstate_standards_eq, 'Приемлемые решения Межгосударственные стандарты (СТ)', class: 'form-check-label'
+      = form.check_box :acceptable_solutions_interstate_standards_eq, class: 'form-check-input'
+  .form-group
+    .form-check.form-switch
+      = form.label :acceptable_solutions_standards_eq, 'Приемлемые решения Стандарты (СТ)', class: 'form-check-label'
+      = form.check_box :acceptable_solutions_standards_eq, class: 'form-check-input'
+
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :effective_solutions_special_technical_conditions_eq, 'Результативные решения | Специальные технические условия (СТУ)', class: 'form-check-label'
+      = form.check_box :effective_solutions_special_technical_conditions_eq, class: 'form-check-input'
+  
+  .form-group              
+    .form-check.form-switch
+      = form.label :effective_solutions_test_reports_eq, 'Результативные решения | Отчеты об испытаниях', class: 'form-check-label'
+      = form.check_box :effective_solutions_test_reports_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :effective_solutions_organization_standards_eq, 'Результативные решения | Стандарты организаций (СО)', class: 'form-check-label'
+      = form.check_box :effective_solutions_organization_standards_eq, class: 'form-check-input'
+
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :by_types_of_buildings_eq, 'По видам зданий', class: 'form-check-label'
+      = form.check_box :by_types_of_buildings_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :general_requirements_eq, 'Общие требования', class: 'form-check-label'
+      = form.check_box :general_requirements_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :public_buildings_schools_eq, 'Общественные здания | Школы', class: 'form-check-label'
+      = form.check_box :public_buildings_schools_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :public_buildings_medical_institutions_eq, 'Общественные здания | Лечебно-профилактические учреждения', class: 'form-check-label'
+      = form.check_box :public_buildings_medical_institutions_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :public_buildings_organizations_of_preschool_education_and_train_eq, 'Общественные здания | Организации дошкольного воспитания и обучения', class: 'form-check-label'
+      = form.check_box :public_buildings_organizations_of_preschool_education_and_train_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :public_buildings_athletic_facilities_eq, 'Общественные здания | Спортивные сооружения', class: 'form-check-label'
+      = form.check_box :public_buildings_athletic_facilities_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :public_buildings_administrative_and_service_buildings_eq, 'Общественные здания | Административные и бытовые здания', class: 'form-check-label'
+      = form.check_box :public_buildings_administrative_and_service_buildings_eq, class: 'form-check-input'
+
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :industrial_buildings_agricultural_enterprises_eq, 'Промышленные здания | Сельскохозяйственные предприятия', class: 'form-check-label'
+      = form.check_box :industrial_buildings_agricultural_enterprises_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :buildings_of_individual_housing_construction_eq, 'Здания индивидуального жилищного строительства', class: 'form-check-label'
+      = form.check_box :buildings_of_individual_housing_construction_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :residential_buildings_eq, 'Жилые здания', class: 'form-check-label'
+      = form.check_box :residential_buildings_eq, class: 'form-check-input'
+
+  
+  .form-group           
+    .form-check.form-switch
+      = form.label :by_scope_eq, 'По сфере применения', class: 'form-check-label'
+      = form.check_box :by_scope_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :general_provisions_eq, 'Общие положения', class: 'form-check-label'
+      = form.check_box :general_provisions_eq, class: 'form-check-input'
+
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :construction_site_and_master_plan_specialized_sites_parking_lot_eq, 'Участок строительства и генеральный план | Специализированные площадки, стоянки, проезды', class: 'form-check-label'
+      = form.check_box :construction_site_and_master_plan_specialized_sites_parking_lot_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :construction_site_and_master_plan_ancillary_buildings_eq, 'Участок строительства и генеральный план | Вспомогательные здания', class: 'form-check-label'
+      = form.check_box :construction_site_and_master_plan_ancillary_buildings_eq, class: 'form-check-input'
+
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :architectural_planning_solutions_functionality_eq, 'Архитектурно-планировочные решения | Функциональность', class: 'form-check-label'
+      = form.check_box :architectural_planning_solutions_functionality_eq, class: 'form-check-input'
+
+  
+  .form-group           
+    .form-check.form-switch
+      = form.label :architectural_planning_solutions_space_planning_solutions_eq, 'Архитектурно-планировочные решения | Объемно-планировочные_решения', class: 'form-check-label'
+      = form.check_box :architectural_planning_solutions_space_planning_solutions_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :architectural_planning_solutions_mgn_eq, 'Архитектурно-планировочные решения | МГН', class: 'form-check-label'
+      = form.check_box :architectural_planning_solutions_mgn_eq, class: 'form-check-input'
+
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :design_solutions_reinforced_concrete_structures_eq, 'Конструктивные решения | Конструкции железобетонные (КЖ)', class: 'form-check-label'
+      = form.check_box :design_solutions_reinforced_concrete_structures_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :design_solutions_metal_structures_eq, 'Конструктивные решения | Конструкции металлические (КМ)', class: 'form-check-label'
+      = form.check_box :design_solutions_metal_structures_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :design_solutions_seismic_eq, 'Конструктивные решения | Сейсмика', class: 'form-check-label'
+      = form.check_box :design_solutions_seismic_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :design_solutions_structural_analysis_eq, 'Конструктивные решения | Расчет конструкций', class: 'form-check-label'
+      = form.check_box :design_solutions_structural_analysis_eq, class: 'form-check-input'
+
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :security_requirements_reliability_of_structures_eq, 'Требования к безопасности | Надежность конструкций', class: 'form-check-label'
+      = form.check_box :security_requirements_reliability_of_structures_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :security_requirements_fire_prevention_eq, 'Требования к безопасности | Предотвращение пожара', class: 'form-check-label'
+      = form.check_box :security_requirements_fire_prevention_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :security_requirements_evacuation_in_case_of_fires_and_other_eme_eq, 'Требования к безопасности | Эвакуация при пожарах и других ЧС', class: 'form-check-label'
+      = form.check_box :security_requirements_evacuation_in_case_of_fires_and_other_eme_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :security_requirements_antiterrorist_activities_eq, 'Требования к безопасности | Антитеррористические мероприятия', class: 'form-check-label'
+      = form.check_box :security_requirements_antiterrorist_activities_eq, class: 'form-check-input'
+
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :sanitary_and_hygiene_requirements_vygiene_eq, 'Санитарно-гигиенические требования | Гигиена', class: 'form-check-label'
+      = form.check_box :sanitary_and_hygiene_requirements_vygiene_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :sanitary_and_hygiene_requirements_noise_vibration_eq, 'Санитарно-гигиенические требования | Шум вибрация', class: 'form-check-label'
+      = form.check_box :sanitary_and_hygiene_requirements_noise_vibration_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :sanitary_and_hygiene_requirements_varmful_radiation_eq, 'Санитарно-гигиенические требования | Вредные излучения', class: 'form-check-label'
+      = form.check_box :sanitary_and_hygiene_requirements_varmful_radiation_eq, class: 'form-check-input'
+
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :engineering_systems_veating_and_ventilation_eq, 'Инженерные системы | Отопление и вентиляция (ОВ)', class: 'form-check-label'
+      = form.check_box :engineering_systems_veating_and_ventilation_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :engineering_systems_water_supply_and_sewerage_eq, 'Инженерные системы | Водоснабжение и канализация (ВК)', class: 'form-check-label'
+      = form.check_box :engineering_systems_water_supply_and_sewerage_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :engineering_systems_electrical_eq, 'Инженерные системы | Электрика (ЭЛ)', class: 'form-check-label'
+      = form.check_box :engineering_systems_electrical_eq, class: 'form-check-input'
+
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :energy_saving_and_environmental_protection_ensuring_environment_eq, 'Энергосбережение и охрана окружающей среды | Обеспечение охраны окружающей среды', class: 'form-check-label'
+      = form.check_box :energy_saving_and_environmental_protection_ensuring_environment_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :energy_saving_and_environmental_protection_reducing_energy_cons_eq, 'Энергосбережение и охрана окружающей среды | Сокращение энергопотребления', class: 'form-check-label'
+      = form.check_box :energy_saving_and_environmental_protection_reducing_energy_cons_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :energy_saving_and_environmental_protection_rational_use_of_natu_eq, 'Энергосбережение и охрана окружающей среды | Рациональное использование природных ресурсов', class: 'form-check-label'
+      = form.check_box :energy_saving_and_environmental_protection_rational_use_of_natu_eq, class: 'form-check-input'
+
+  hr
+  .form-group
+    .form-check.form-switch
+      = form.label :according_to_the_stage_of_the_life_cycle_of_a_building_eq, 'По стадии жизненного цикла здания', class: 'form-check-label'
+      = form.check_box :according_to_the_stage_of_the_life_cycle_of_a_building_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :project_eq, 'Проект', class: 'form-check-label'
+      = form.check_box :project_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :requirements_for_construction_documentation_eq, 'Требования к строительной документации', class: 'form-check-label'
+      = form.check_box :requirements_for_construction_documentation_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :construction_eq, 'Строительство', class: 'form-check-label'
+      = form.check_box :construction_eq, class: 'form-check-input'
+  
+  .form-group
+    .form-check.form-switch
+      = form.label :exploitation_eq, 'Эксплуатация', class: 'form-check-label'
+      = form.check_box :exploitation_eq, class: 'form-check-input'
 
   .mt-5
-    = form.submit class: 'btn btn-sm btn-outline-seccess'
+    = form.submit class: 'btn btn-sm btn-outline-success'

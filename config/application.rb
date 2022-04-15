@@ -12,7 +12,10 @@ module Octopus
     config.load_defaults 7.0
     config.time_zone = 'Almaty'    
     config.autoload_paths += [config.root.join('app')]
-    
+    config.i18n.default_locale = :ru
+    config.i18n.fallbacks = %i[ru en]
+
+
     config.generators do |g|
       g.test_framework :rspec,
                         view_specs: false,

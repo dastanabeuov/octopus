@@ -1,24 +1,31 @@
-nav class="navbar sticky-top navbar-expand-md navbar-dark mb-5"
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.sticky-top
   .container
-    a href="#{root_path}"
-      = image_tag 'logo.png', class: "navbar-brand img-fluid", heght: "150", width: "150"
-
-    button_to class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-      <span class="navbar-toggler-icon"></span>
-
-    .collapse.navbar-collapse id="navbarSupportedContent"
-    - if user_signed_in?
-      ul.navbar-nav.pull-xs-right.pl-5.pr-5
-        li.nav-link
-          = link_to 'Tables', agsks_path
-        li.nav-link
-          = current_user.email
-        li.nav-link
-          = link_to 'edit profile', edit_user_registration_path
-        li.nav-link
-          = button_to 'sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, title: "Sign out", alt: "Logout", class: "btn btn-sm btn-outline-danger text-light"
-    - else
-        li.nav-link
-          = button_to 'sign in', new_user_session_path, method: :get, class: "nav-link btn btn-sm btn-danger text-light"
-        li.nav-link
-          = button_to 'sign up', new_user_registration_path, method: :get, class: "nav-link btn btn-sm btn-success text-light"
+    a.navbar-brand href="#{root_path}"  
+      = image_tag 'logo-white.png', heght: "85", width: "85"
+    button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button" 
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        li.nav-item
+          a.nav-link.active aria-current="page" href="#{root_path}"  Главная
+        - if user_signed_in?
+          li.nav-item
+            = link_to 'Таблицы', agsks_path, class: 'nav-link'
+          li.nav-item.dropdown
+            a#navbarDropdown.nav-link.dropdown-toggle aria-expanded="false" data-bs-toggle="dropdown" href="#" role="button" 
+              = current_user.email
+            ul.dropdown-menu aria-labelledby="navbarDropdown" 
+              li
+                = link_to 'Редактировать профиль', edit_user_registration_path, class: 'dropdown-item'
+              li
+                hr.dropdown-divider/
+              li
+                = button_to 'Выход', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }, title: "Sign out", alt: "Logout", class: 'dropdown-item'
+        - else
+          li.nav-item
+            = link_to 'Вход', new_user_session_path, method: :get, class: "nav-link"
+          li.nav-item
+            = link_to 'Регистрация', new_user_registration_path, method: :get, class: "nav-link"
+      form.d-flex
+        input.form-control.me-2 aria-label="Search" placeholder="Поиск" type="search" /
+        button.btn.btn-outline-light type="submit"  Поиск

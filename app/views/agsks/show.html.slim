@@ -1,15 +1,73 @@
-.new-agsk.mb-5
-  = link_to 'New', new_agsk_path, class: 'btn btn-sm btn-outline-success'
+.d-flex.justify-content-center
+  h1 Показать
 
 div class="table-responsive"
   table class="table table-bordered table-hover"
     thead class="thead-light"
       tr
-        th Requirement
-        th Concept
-        th Descriptor
-        th Filter
-        th User ID
+        th Требование
+        th Понятие
+        th Дескриптор
+        th Без фильтра 
+        th Формализуемый
+        th Не Формализуемый
+        th Ссылочная
+        th По иерархии
+        th Законодательный уровень | Кодексы
+        th Законодательный уровень | Законы
+        th Производный уровень | Тех.регламенты
+        th Производный уровень | Правила
+        th Производный уровень | Санитарные правила
+        th Результативные требования | Межгосударственные строительные нормы (МСН)
+        th Результативные требования | Строительные нормы (СН)
+        th Результативные требования | Руководящие документы в строительстве (РДС)
+        th Приемлемые решения Межгосударственные Своды правил (МСП)
+        th Приемлемые решения Своды правил (СП)
+        th Приемлемые решения Рекомендации, инструкции, Нормативно технические пособия (НТП)
+        th Приемлемые решения Межгосударственные стандарты (СТ)
+        th Приемлемые решения Стандарты (СТ)
+        th Результативные решения | Специальные технические условия (СТУ)
+        th Результативные решения | Отчеты об испытаниях 
+        th Результативные решения | Стандарты организаций (СО)
+        th По видам зданий
+        th Общие требования
+        th Общественные здания | Школы
+        th Общественные здания | Лечебно-профилактические учреждения
+        th Общественные здания | Организации дошкольного воспитания и обучения
+        th Общественные здания | Спортивные сооружения
+        th Общественные здания | Административные и бытовые здания
+        th Промышленные здания | Сельскохозяйственные предприятия
+        th Здания индивидуального жилищного строительства 
+        th Жилые здания
+        th По сфере применения
+        th Общие положения
+        th Участок строительства и генеральный план | Специализированные площадки, стоянки, проезды
+        th Участок строительства и генеральный план | Вспомогательные здания 
+        th Архитектурно-планировочные решения | Функциональность
+        th Архитектурно-планировочные решения | Объемно-планировочные решения 
+        th Архитектурно-планировочные решения | МГН 
+        th Конструктивные решения | Конструкции железобетонные (КЖ)
+        th Конструктивные решения | Конструкции металлические (КЖ) 
+        th Конструктивные решения | Сейсмика
+        th Конструктивные решения | Расчет конструкций
+        th Требования к безопасности | Надежность конструкций
+        th Требования к безопасности | Предотвращение пожара
+        th Требования к безопасности | Эвакуация при пожарах и других ЧС 
+        th Требования к безопасности | Антитеррористические мероприятия
+        th Санитарно-гигиенические требования | Гигиена
+        th Санитарно-гигиенические требования | Шум, вибрация
+        th Санитарно-гигиенические требования | Вредные излучения 
+        th Инженерные системы | Отопление и вентиляция (ОВ) 
+        th Инженерные системы | Водоснабжение и канализация (ВК)   
+        th Инженерные системы | Электрика (ЭЛ) 
+        th Энергосбережение и охрана окружающей среды | Обеспечение охраны окружающей среды
+        th Энергосбережение и охрана окружающей среды | Сокращение энергопотребления 
+        th Энергосбережение и охрана окружающей среды | Рациональное использование природных ресурсов 
+        th По стадии жизненного цикла здания 
+        th Проект 
+        th Требования к строительной документации 
+        th Строительство 
+        th Эксплуатация 
         th colspan="1" Action
 
     tbody
@@ -17,8 +75,67 @@ div class="table-responsive"
         td = @agsk.requirement
         td = @agsk.concept
         td = @agsk.descriptor
-        td = @agsk.filter
-        td = @agsk.user_id
+        td = 1 if @agsk.without_a_filter
+        td = 1 if @agsk.formalizable
+        td = 1 if @agsk.not_formalized
+        td = 1 if @agsk.reference
+        td = 1 if @agsk.by_hierarchy
+        td = 1 if @agsk.legislative_level_codes
+        td = 1 if @agsk.legislative_level_the_laws
+        td = 1 if @agsk.derived_level_technical_regulations
+        td = 1 if @agsk.derived_level_rules
+        td = 1 if @agsk.derived_level_sanitary_regulations
+        td = 1 if @agsk.performance_requirements_interstate_building_codes
+        td = 1 if @agsk.performance_requirements_building_codes
+        td = 1 if @agsk.performance_requirements_guiding_documents_in_construction
+        td = 1 if @agsk.acceptable_solutions_interstate_codes_of_practice
+        td = 1 if @agsk.acceptable_code_of_practice_solutions
+        td = 1 if @agsk.acceptable_solutions_recommendations_instructions_normative_tec
+        td = 1 if @agsk.acceptable_solutions_interstate_standards
+        td = 1 if @agsk.acceptable_solutions_standards
+        td = 1 if @agsk.effective_solutions_special_technical_conditions
+        td = 1 if @agsk.effective_solutions_test_reports
+        td = 1 if @agsk.effective_solutions_organization_standards
+        td = 1 if @agsk.by_types_of_buildings
+        td = 1 if @agsk.general_requirements
+        td = 1 if @agsk.public_buildings_schools
+        td = 1 if @agsk.public_buildings_medical_institutions
+        td = 1 if @agsk.public_buildings_organizations_of_preschool_education_and_train
+        td = 1 if @agsk.public_buildings_athletic_facilities
+        td = 1 if @agsk.public_buildings_administrative_and_service_buildings
+        td = 1 if @agsk.industrial_buildings_agricultural_enterprises
+        td = 1 if @agsk.buildings_of_individual_housing_construction
+        td = 1 if @agsk.residential_buildings
+        td = 1 if @agsk.by_scope
+        td = 1 if @agsk.general_provisions
+        td = 1 if @agsk.construction_site_and_master_plan_specialized_sites_parking_lot
+        td = 1 if @agsk.construction_site_and_master_plan_ancillary_buildings
+        td = 1 if @agsk.architectural_planning_solutions_functionality
+        td = 1 if @agsk.architectural_planning_solutions_space_planning_solutions
+        td = 1 if @agsk.architectural_planning_solutions_mgn
+        td = 1 if @agsk.design_solutions_reinforced_concrete_structures
+        td = 1 if @agsk.design_solutions_metal_structures
+        td = 1 if @agsk.design_solutions_seismic
+        td = 1 if @agsk.design_solutions_structural_analysis
+        td = 1 if @agsk.security_requirements_reliability_of_structures
+        td = 1 if @agsk.security_requirements_fire_prevention
+        td = 1 if @agsk.security_requirements_evacuation_in_case_of_fires_and_other_eme
+        td = 1 if @agsk.security_requirements_antiterrorist_activities
+        td = 1 if @agsk.sanitary_and_hygiene_requirements_vygiene
+        td = 1 if @agsk.sanitary_and_hygiene_requirements_noise_vibration
+        td = 1 if @agsk.sanitary_and_hygiene_requirements_varmful_radiation
+        td = 1 if @agsk.engineering_systems_veating_and_ventilation
+        td = 1 if @agsk.engineering_systems_water_supply_and_sewerage
+        td = 1 if @agsk.engineering_systems_electrical
+        td = 1 if @agsk.energy_saving_and_environmental_protection_ensuring_environment
+        td = 1 if @agsk.energy_saving_and_environmental_protection_reducing_energy_cons
+        td = 1 if @agsk.energy_saving_and_environmental_protection_rational_use_of_natu
+        td = 1 if @agsk.according_to_the_stage_of_the_life_cycle_of_a_building
+        td = 1 if @agsk.project
+        td = 1 if @agsk.requirements_for_construction_documentation
+        td = 1 if @agsk.construction
+        td = 1 if @agsk.exploitation
         td 
-          => link_to "Edit", edit_agsk_path(@agsk), class: 'btn btn-sm btn-outline-warning'
+          - if current_user&.author_of?(@agsk)
+            => link_to "Edit", edit_agsk_path(@agsk), class: 'btn btn-sm btn-outline-warning'
           =< link_to "Back", agsks_path, class: 'btn btn-sm btn-outline-secondary'

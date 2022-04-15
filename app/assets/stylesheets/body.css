@@ -1,4 +1,4 @@
-body {
+/*body {
   margin-bottom: 5%;
   background-color: #f2f2f2;
   font-family: 'Roboto', sans-serif !important;
@@ -14,4 +14,15 @@ footer {
 }
 .navbar li a:hover {
   color: danger !important;
+}*/
+
+.content {
+  margin-top: 3%;
+  margin-bottom: 7%;
+}
+select {
+  width: 100%;
+}
+.table > thead {
+  vertical-align: top!important;
 }
