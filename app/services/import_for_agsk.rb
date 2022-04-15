@@ -15,7 +15,7 @@ class ImportForAgsk
     
     (2..sheet.last_row).each do |i|
       row = [header, sheet.row(i)].transpose.to_h
-  
+ 
       row.map do |key, value|
         value = true if value == 1
       end

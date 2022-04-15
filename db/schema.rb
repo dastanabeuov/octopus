@@ -16,9 +16,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_080255) do
 
   create_table "agsks", force: :cascade do |t|
     t.text "requirement", null: false
+    t.boolean "without_a_filter", default: false
     t.string "concept"
     t.string "descriptor"
-    t.boolean "without_a_filter", default: false
     t.boolean "formalizable", default: false
     t.boolean "not_formalized", default: false
     t.boolean "reference", default: false

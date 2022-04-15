@@ -6,9 +6,9 @@ div class="table-responsive"
     thead class="thead-light"
       tr
         th Требование
+        th Без фильтра
         th Понятие
         th Дескриптор
-        th Без фильтра 
         th Формализуемый
         th Не Формализуемый
         th Ссылочная
@@ -73,9 +73,9 @@ div class="table-responsive"
     tbody
       tr
         td = @agsk.requirement
+        td = 1 if @agsk.without_a_filter
         td = @agsk.concept
         td = @agsk.descriptor
-        td = 1 if @agsk.without_a_filter
         td = 1 if @agsk.formalizable
         td = 1 if @agsk.not_formalized
         td = 1 if @agsk.reference

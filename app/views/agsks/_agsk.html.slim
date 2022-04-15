@@ -1,10 +1,10 @@
 tbody
   tr
     td = agsk.requirement
+    td = 1 if agsk.without_a_filter
     td = agsk.concept
     td = agsk.descriptor
 
-    td = 1 if agsk.without_a_filter
     td = 1 if agsk.formalizable
     td = 1 if agsk.not_formalized
     td = 1 if agsk.reference

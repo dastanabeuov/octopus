@@ -2,10 +2,10 @@ class CreateAgsks < ActiveRecord::Migration[7.0]
   def change
     create_table :agsks do |t|
       t.text     :requirement, null: false, unique: true
+      t.boolean  :without_a_filter, default: false      
       t.string   :concept
       t.string   :descriptor
 
-      t.boolean  :without_a_filter, default: false
       t.boolean  :formalizable, default: false
       t.boolean  :not_formalized, default: false
       t.boolean  :reference, default: false
