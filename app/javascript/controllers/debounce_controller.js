@@ -7,9 +7,7 @@ export default class extends Controller {
   connect() { console.log("debounce controller connected") }
 
   search() {
-  clearTimeout(this.timeout)
-  this.timeout = setTimeout(() => {
-      this.formTarget.requestSubmit()
-    }, 500)
+    clearTimeout(this.timeout)
+    this.timeout = setTimeout( () => { this.formTarget.requestSubmit() }, 500 )
   }
 }

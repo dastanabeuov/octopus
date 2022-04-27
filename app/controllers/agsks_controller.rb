@@ -35,7 +35,7 @@ class AgsksController < ApplicationController
     if Agsk.count > amount
       flash[:notice] = 'Agsk imported.'
     else
-      flash[:error] = 'Agsk is not imported.'
+      flash[:error] = 'Agsk is not imported. Record exists!'
     end
   end
 
