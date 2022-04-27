@@ -37,14 +37,18 @@
 
 
     .dropdown.mt-3.mb-3
-      button#dropdownMenuButton1.btn.btn-outline-secondary.dropdown-toggle aria-expanded="false" data-bs-toggle="dropdown" type="button" 
+      button#dropdownMenuButton1.btn.btn-outline-secondary.dropdown-toggle aria-expanded="false" data-bs-toggle="dropdown" type="button"
         | Расширенный поиск
+
       ul.dropdown-menu aria-labelledby="dropdownMenuButton1"
 
         li.dropdown-item
           .form-check.form-switch
             = form.label :formalizable_gteq, 'Формализуемый', class: 'form-check-label'
-            = form.check_box :formalizable_gteq, class: 'form-check-input'
+            = form.check_box :formalizable_gteq, 
+                      class: 'form-check-input',
+                      autocomplete: 'on',
+                      data: { action: 'debounce#search' }
         
         li.dropdown-item
           .form-check.form-switch
@@ -349,7 +353,7 @@
         li.hr.dropdown-divider
         li.dropdown-header
           .actions
-            = form.submit 'Поиск', class: 'btn btn-sm btn-outline-dark'
+            = form.submit 'Поиск', class: 'btn btn-sm btn-outline-dark', data: { action: 'dropdown#usePreventDefault' }
         
         li
           br
