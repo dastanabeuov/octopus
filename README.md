@@ -2,7 +2,7 @@
 <p>
 
 
-Octopus is a Ruby on Rails application design to help the manage data table(CRUD && Search).
+Octopus is a Ruby on Rails application design to help the manage data table(CRUD | Search | imported).
 </p>
 
 ### ✨ [Demo](https://octopus-adk.herokuapp.com/)
